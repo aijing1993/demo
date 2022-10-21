@@ -1,0 +1,5 @@
+-r requirements.txt
+werkzeug~=2.0.0
+cryptography==36.0.2
+flask_mysqldb
+pymysql

@@ -1,0 +1,460 @@
+<script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+<script type="text/javascript" src="/static/assets/plotly-2.9.0.min.js"></script>
+<div class="plotly-graph-div" id="test-results" style="height:100%; width:100%;"></div>
+<script type="text/javascript">                                    
+window.PLOTLYENV = window.PLOTLYENV || {};
+var plotdata = [{
+        "hoverinfo": "none",
+        "insidetextanchor": "middle",
+        "marker": {"color": "rgba(252,141,89,1)"},
+        "orientation": "h",
+        "text": "low",
+        "textfont": {"color": "rgb(248, 248, 255)", "family": "sans-serif", "size": 13},
+        "textposition": "inside",
+        "width": 0.3, // diastolic bar height
+        "x": [0.25], // diastolic low range width
+        "y": [0], // diastolic vertical position
+        "type": "bar"
+    }, {
+        "hoverinfo": "none",
+        "insidetextanchor": "middle",
+        "marker": {"color": "rgba(145,207,96,1)"},
+        "orientation": "h",
+        "text": "normal",
+        "textfont": {"color": "rgb(248, 248, 255)", "family": "sans-serif", "size": 13},
+        "textposition": "inside",
+        "width": 0.3, // diastolic bar height
+        "x": [0.25], // diastolic normal range width
+        "y": [0], // diastolic vertical position
+        "type": "bar"
+    }, {
+        "hoverinfo": "none",
+        "insidetextanchor": "middle",
+        "marker": {"color": "rgba(252,141,89,1)"},
+        "orientation": "h",
+        "text": "high",
+        "textfont": {"color": "rgb(248, 248, 255)", "family": "sans-serif", "size": 13},
+        "textposition": "inside",
+        "width": 0.3, // diastolic bar height
+        "x": [0.5], // diastolic high range width
+        "y": [0], // diastolic vertical position
+        "type": "bar"
+    }, {
+        "hoverinfo": "none",
+        "insidetextanchor": "middle",
+        "marker": {"color": "rgba(252,141,89,1)"},
+        "orientation": "h",
+        "text": "low",
+        "textfont": {"color": "rgb(248, 248, 255)", "family": "sans-serif", "size": 13},
+        "textposition": "inside",
+        "width": 0.3, // systolic bar height
+        "x": [0.1666666666666667], // systolic low range width
+        "y": [1], // systolic vertical position
+        "type": "bar"
+    }, {
+        "hoverinfo": "none",
+        "insidetextanchor": "middle",
+        "marker": {"color": "rgba(145,207,96,1)"},
+        "orientation": "h",
+        "text": "normal",
+        "textfont": {"color": "rgb(248, 248, 255)", "family": "sans-serif", "size": 13},
+        "textposition": "inside",
+        "width": 0.3, // systolic bar height
+        "x": [0.3333333333333333], // systolic normal range width
+        "y": [1], // systolic vertical position
+        "type": "bar"
+    }, {
+        "hoverinfo": "none",
+        "insidetextanchor": "middle",
+        "marker": {"color": "rgba(252,141,89,1)"},
+        "orientation": "h",
+        "text": "high",
+        "textfont": {"color": "rgb(248, 248, 255)", "family": "sans-serif", "size": 13},
+        "textposition": "inside",
+        "width": 0.3, // systolic bar height
+        "x": [0.5], // systolic high range width
+        "y": [1], // systolic vertical position
+        "type": "bar"
+    }, {
+        "hoverinfo": "none",
+        "hovertemplate": "77.0",
+        "marker": {"color": "black", "size": 10, "symbol": "triangle-down"},
+        "mode": "markers+text",
+        "name": "1/26<br>2020",
+        "text": "03/10/20", // <-- CHANGE diastolic most recent date
+        "textfont": {"color": "black", "family": "sans-serif", "size": 12},
+        "textposition": "top center",
+        "x": [0.9], // <-- CHANGE diastolic most recent value/120
+        "y": [0.18], // diastolic most recent value date vertical position
+        "type": "scatter"
+    }, {
+        "hoverinfo": "none",
+        "hovertemplate": "77.0",
+        "marker": {"color": "black", "size": 10, "symbol": "triangle-down"},
+        "name": "1/26<br>2020",
+        "mode": "markers+text",
+        "text": "03/10/20", // <-- CHANGE systolic most recent date
+        "textfont": {"color": "black", "family": "sans-serif", "size": 12},
+        "textposition": "top center",
+        "x": [0.8], // <-- CHANGE systolic most recent value/180
+        "y": [1.18], // systolic most recent value date vertical position
+        "type": "scatter"
+    }, {
+        "hoverinfo": "none",
+        "hovertemplate": "77.0",
+        "marker": {"color": "gray", "size": 10, "symbol": "triangle-down"},
+        "name": "1/26<br>2020",
+        "mode": "markers+text",
+        "text": "02/14/19", // <-- CHANGE diastolic second most recent value/120
+        "textfont": {"color": "black", "family": "sans-serif", "size": 12},
+        "textposition": "bottom center",
+        "x": [0.1], // <-- CHANGE diastolic second most recent value/120
+        "y": [0.18], // diastolic second most recent value date vertical position
+        "type": "scatter"
+    }, {
+        "hoverinfo": "none",
+        "hovertemplate": "77.0",
+        "marker": {"color": "gray", "size": 10, "symbol": "triangle-down"},
+        "name": "1/26<br>2020",
+        "mode": "markers+text",
+        "text": "02/14/19", // <-- CHANGE systolic second most recent date
+        "textfont": {"color": "black", "family": "sans-serif", "size": 12},
+        "textposition": "bottom center",
+        "x": [0.3], // <-- CHANGE systolic second most recent value/180
+        "y": [1.18], // systolic second most recent value date vertical position
+        "type": "scatter"
+    }];
+var plotlayout = {
+        "template": {
+            "data": {
+                "bar": [{
+                    "error_x": {"color": "#2a3f5f"},
+                    "error_y": {"color": "#2a3f5f"},
+                    "marker": {
+                        "line": {"color": "#E5ECF6", "width": 0.5},
+                        "pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}
+                    },
+                    "type": "bar"
+                }],
+                "barpolar": [{
+                    "marker": {
+                        "line": {"color": "#E5ECF6", "width": 0.5},
+                        "pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}
+                    }, "type": "barpolar"
+                }],
+                "carpet": [{
+                    "aaxis": {
+                        "endlinecolor": "#2a3f5f",
+                        "gridcolor": "white",
+                        "linecolor": "white",
+                        "minorgridcolor": "white",
+                        "startlinecolor": "#2a3f5f"
+                    },
+                    "baxis": {
+                        "endlinecolor": "#2a3f5f",
+                        "gridcolor": "white",
+                        "linecolor": "white",
+                        "minorgridcolor": "white",
+                        "startlinecolor": "#2a3f5f"
+                    },
+                    "type": "carpet"
+                }],
+                "choropleth": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "choropleth"}],
+                "contour": [{
+                    "colorbar": {"outlinewidth": 0, "ticks": ""},
+                    "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]],
+                    "type": "contour"
+                }],
+                "contourcarpet": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "contourcarpet"}],
+                "heatmap": [{
+                    "colorbar": {"outlinewidth": 0, "ticks": ""},
+                    "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]],
+                    "type": "heatmap"
+                }],
+                "heatmapgl": [{
+                    "colorbar": {"outlinewidth": 0, "ticks": ""},
+                    "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]],
+                    "type": "heatmapgl"
+                }],
+                "histogram": [{
+                    "marker": {"pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}},
+                    "type": "histogram"
+                }],
+                "histogram2d": [{
+                    "colorbar": {"outlinewidth": 0, "ticks": ""},
+                    "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]],
+                    "type": "histogram2d"
+                }],
+                "histogram2dcontour": [{
+                    "colorbar": {"outlinewidth": 0, "ticks": ""},
+                    "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]],
+                    "type": "histogram2dcontour"
+                }],
+                "mesh3d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "mesh3d"}],
+                "parcoords": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "parcoords"}],
+                "pie": [{"automargin": true, "type": "pie"}],
+                "scatter": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter"}],
+                "scatter3d": [{
+                    "line": {"colorbar": {"outlinewidth": 0, "ticks": ""}},
+                    "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}},
+                    "type": "scatter3d"
+                }],
+                "scattercarpet": [{
+                    "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}},
+                    "type": "scattercarpet"
+                }],
+                "scattergeo": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergeo"}],
+                "scattergl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergl"}],
+                "scattermapbox": [{
+                    "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}},
+                    "type": "scattermapbox"
+                }],
+                "scatterpolar": [{
+                    "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}},
+                    "type": "scatterpolar"
+                }],
+                "scatterpolargl": [{
+                    "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}},
+                    "type": "scatterpolargl"
+                }],
+                "scatterternary": [{
+                    "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}},
+                    "type": "scatterternary"
+                }],
+                "surface": [{
+                    "colorbar": {"outlinewidth": 0, "ticks": ""},
+                    "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]],
+                    "type": "surface"
+                }],
+                "table": [{
+                    "cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}},
+                    "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}},
+                    "type": "table"
+                }]
+            }, "layout": {
+                "annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1},
+                "autotypenumbers": "strict",
+                "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}},
+                "colorscale": {
+                    "diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]],
+                    "sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]],
+                    "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]
+                },
+                "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"],
+                "font": {"color": "#2a3f5f"},
+                "geo": {
+                    "bgcolor": "white",
+                    "lakecolor": "white",
+                    "landcolor": "#E5ECF6",
+                    "showlakes": true,
+                    "showland": true,
+                    "subunitcolor": "white"
+                },
+                "hoverlabel": {"align": "left"},
+                "hovermode": "closest",
+                "mapbox": {"style": "light"},
+                "paper_bgcolor": "white",
+                "plot_bgcolor": "#E5ECF6",
+                "polar": {
+                    "angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""},
+                    "bgcolor": "#E5ECF6",
+                    "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}
+                },
+                "scene": {
+                    "xaxis": {
+                        "backgroundcolor": "#E5ECF6",
+                        "gridcolor": "white",
+                        "gridwidth": 2,
+                        "linecolor": "white",
+                        "showbackground": true,
+                        "ticks": "",
+                        "zerolinecolor": "white"
+                    },
+                    "yaxis": {
+                        "backgroundcolor": "#E5ECF6",
+                        "gridcolor": "white",
+                        "gridwidth": 2,
+                        "linecolor": "white",
+                        "showbackground": true,
+                        "ticks": "",
+                        "zerolinecolor": "white"
+                    },
+                    "zaxis": {
+                        "backgroundcolor": "#E5ECF6",
+                        "gridcolor": "white",
+                        "gridwidth": 2,
+                        "linecolor": "white",
+                        "showbackground": true,
+                        "ticks": "",
+                        "zerolinecolor": "white"
+                    }
+                },
+                "shapedefaults": {"line": {"color": "#2a3f5f"}},
+                "ternary": {
+                    "aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""},
+                    "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""},
+                    "bgcolor": "#E5ECF6",
+                    "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}
+                },
+                "title": {"x": 0.05},
+                "xaxis": {
+                    "automargin": true,
+                    "gridcolor": "white",
+                    "linecolor": "white",
+                    "ticks": "",
+                    "title": {"standoff": 15},
+                    "zerolinecolor": "white",
+                    "zerolinewidth": 2
+                },
+                "yaxis": {
+                    "automargin": true,
+                    "gridcolor": "white",
+                    "linecolor": "white",
+                    "ticks": "",
+                    "title": {"standoff": 15},
+                    "zerolinecolor": "white",
+                    "zerolinewidth": 2
+                }
+            }
+        },
+        "xaxis": {
+            "showgrid": false,
+            "showline": false,
+            "showticklabels": false,
+            "zeroline": false,
+            "domain": [0, 1]
+        },
+        "yaxis": {"showgrid": false, "showline": false, "showticklabels": false, "zeroline": false},
+        "margin": {"l": 150, "r": 50, "t": 10, "b": 10},
+        "barmode": "stack",
+        "paper_bgcolor": "rgb(248, 248, 255)",
+        "plot_bgcolor": "rgb(248, 248, 255)",
+        "showlegend": false,
+        "annotations": [{
+            "font": {"color": "rgb(67, 67, 67)", "family": "sans-serif", "size": 11},
+            "showarrow": false,
+            "text": "40", // diastolic low bound text
+            "x": 0,
+            "xanchor": "center",
+            "xref": "x",
+            "y": -0.21,
+            "yref": "y"
+        }, {
+            "font": {"color": "rgb(67, 67, 67)", "family": "sans-serif", "size": 11},
+            "showarrow": false,
+            "text": "60", // diastolic low-normal sep text
+            "x": 0.25,
+            "xanchor": "center",
+            "xref": "x",
+            "y": -0.21,
+            "yref": "y"
+        }, {
+            "font": {"color": "rgb(67, 67, 67)", "family": "sans-serif", "size": 11},
+            "showarrow": false,
+            "text": "80", // diastolic normal-high sep text
+            "x": 0.5,
+            "xanchor": "center",
+            "xref": "x",
+            "y": -0.21,
+            "yref": "y"
+        }, {
+            "font": {"color": "rgb(67, 67, 67)", "family": "sans-serif", "size": 11},
+            "showarrow": false,
+            "text": "120", // diastolic high bound text
+            "x": 1.0,
+            "xanchor": "center",
+            "xref": "x",
+            "y": -0.21,
+            "yref": "y"
+        }, {
+            "font": {"color": "rgb(67, 67, 67)", "family": "sans-serif", "size": 11},
+            "showarrow": false,
+            "text": "60", // systolic low bound text
+            "x": 0,
+            "xanchor": "center",
+            "xref": "x",
+            "y": 0.79,
+            "yref": "y"
+        }, {
+            "font": {"color": "rgb(67, 67, 67)", "family": "sans-serif", "size": 11},
+            "showarrow": false,
+            "text": "80", // systolic low-normal sep text
+            "x": 0.1666666666666667,
+            "xanchor": "center",
+            "xref": "x",
+            "y": 0.79,
+            "yref": "y"
+        }, {
+            "font": {"color": "rgb(67, 67, 67)", "family": "sans-serif", "size": 11},
+            "showarrow": false,
+            "text": "120", // systolic normal-high sep text
+            "x": 0.5,
+            "xanchor": "center",
+            "xref": "x",
+            "y": 0.79,
+            "yref": "y"
+        }, {
+            "font": {"color": "rgb(67, 67, 67)", "family": "sans-serif", "size": 11},
+            "showarrow": false,
+            "text": "180", // systolic high bound text
+            "x": 1.0,
+            "xanchor": "center",
+            "xref": "x",
+            "y": 0.79,
+            "yref": "y"
+        }, {
+            "align": "center",
+            "font": {"color": "rgb(67, 67, 67)", "family": "sans-serif", "size": 12},
+            "showarrow": false,
+            "text": "Diastolic Blood Pressure<br>mm[Hg]", // diastolic left label
+            "x": 0,
+            "xanchor": "right",
+            "xref": "paper",
+            "y": 0,
+            "yref": "y"
+        }, {
+            "align": "center",
+            "font": {"color": "rgb(67, 67, 67)", "family": "sans-serif", "size": 12},
+            "showarrow": false,
+            "text": "Systolic Blood Pressure<br>mm[Hg]", // diastolic right label
+            "x": 0,
+            "xanchor": "right",
+            "xref": "paper",
+            "y": 1,
+            "yref": "y"
+        }]
+    };
+
+function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    return month+'/'+day+'<br>'+year;
+}
+
+Promise.all([
+    fetch('/pressureLow').then(response =>response.json()),
+    fetch('/pressureHigh').then(response =>response.json()),
+]).then((data) =>{
+    plotdata[6].x=[(data[0][0].value-40)/80];
+    plotdata[6].text=formatDate(data[0][0].date);
+    plotdata[6].name=formatDate(data[0][0].date);
+    plotdata[6].hovertemplate=parseInt(data[0][0].value);
+    plotdata[7].x=[(data[1][0].value-60)/120];
+    plotdata[7].text=formatDate(data[1][0].date);
+    plotdata[7].name=formatDate(data[1][0].date);
+    plotdata[7].hovertemplate=parseInt(data[1][0].value);
+    plotdata[8].x=[(data[0][1].value-40)/80];
+    plotdata[8].text="";
+    plotdata[8].name=formatDate(data[0][1].date);
+    plotdata[8].hovertemplate=parseInt(data[0][1].value);
+    plotdata[9].x=[(data[1][1].value-60)/120];
+    plotdata[9].text="";
+    plotdata[9].name=formatDate(data[1][1].date);
+    plotdata[9].hovertemplate=parseInt(data[1][1].value);
+})
+    .then((data) =>Plotly.newPlot("test-results", plotdata, plotlayout, {"responsive": true}))
+                            
+</script>

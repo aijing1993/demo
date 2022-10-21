@@ -1,0 +1,48 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Medications {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+        <div class="col-md-12">
+            <div class="bgc-white bd bdrs-3 p-20 mB-20">
+            <h4 class="c-grey-900 mB-20">Medication List</h4>
+{#            <p>Similar to tables and dark tables, use the modifier classes <code class="highlighter-rouge">.thead-light</code> or <code class="highlighter-rouge">.thead-dark</code> to make <code class="highlighter-rouge">&lt;thead&gt;</code>s appear light or dark gray.</p>#}
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Start</th>
+                    <th scope="col">Stop</th>
+                    <th scope="col">Code</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Base Cost</th>
+                    <th scope="col">Dispenses</th>
+                    <th scope="col">Total Cost</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for medication in all_medications %}
+                <tr>
+                    <th scope="row">{{ medication['start'] }}</th>
+                    <td>{{ medication['stop'] }}</td>
+                    <td>{{ medication['code'] }}</td>
+                    <td>{{ medication['description'] }}</td>
+                    <td>{{ medication['base_cost'] }}</td>
+                    <td>{{ medication['dispenses'] }}</td>
+                    <td>{{ medication['totalcost'] }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
